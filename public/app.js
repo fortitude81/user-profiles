@@ -12,10 +12,10 @@ angular.module('userProfiles', ['ui.router'])
 		url: '/profile',
 		'templateUrl': './views/profile.html',
 		controller: 'profileCtrl',
-		resolve: {
-			userInfo: function( friendService ) {
-				/* FIX ME */
-			}
+		resolve: {									//This resolve should return the result of our friendService.getFriends
+			userInfo: function( friendService ) {   //method sending a 'GET' request to our /api/profiles endpoint.
+				return friendService.getFriends();	
+			}		
 		}
 	});
 
